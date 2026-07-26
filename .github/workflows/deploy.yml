@@ -13,10 +13,11 @@ jobs:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-node@v4
+      - uses: actions/checkout@v4.2.2 # Uses Node 20/24 compatible runner execution
+      - uses: actions/setup-node@v4.2.0 # Updated to resolve Node deprecation notices
         with:
           node-version: 22
+          cache: 'npm'
       - run: npm install
       - run: npm run build
         env:
