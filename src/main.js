@@ -12,7 +12,15 @@ fetch(`https://api.nasa.gov/planetary/apod?api_key=${API_KEY}`)
     if (data.media_type === "image") {
         img = `<img src="${data.url}" id="img">`
     } else if (data.url.includes("youtube")) {
-        img = `<iframe src="${data.url}" id="img" />`
+        img = `<iframe 
+        width="560" 
+        height="315" 
+        src="${data.url}" 
+        title="YouTube video player" 
+        frameborder="0" 
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; fullscreen" 
+        allowfullscreen>
+        </iframe>`
     } else {
         img = `<video controls src="${data.url}" id="img"></video>`
     }
